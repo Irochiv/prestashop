@@ -1,0 +1,27 @@
+version: "3.3"
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: Preta-mysql
+    environment:
+      - MYSQL_DATABASE=Telcel
+      - MYSQL_ROOT_PASSWORD=gallegos
+      - MYSQL_USER=irochiv
+      - MYSQL_PASSWORD=leonardo
+    volumes:
+      # Montamos un volumen para MySQL para no perder los datos de bd
+      - ./dbarchivos:/var/lib/mysql
+      - ./dbconf:/etc/mysql/conf.d
+    expose:
+      - 3306
+    ports:
+      - 3306:3306
+
+  phpache:
+    image: webdevops/php-apache:7.3
+    container_name: Presta-php
+    ports:
+        - "80:80"
+    volumes:
+        - ./server:/app
