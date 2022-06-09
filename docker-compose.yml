@@ -39,13 +39,27 @@ services:
   #         - prestashop-net
 
 
+  # phpache:
+  #   image: webdevops/php-apache:7.3
+  #   container_name: Presta-php
+  #   ports:
+  #       - "81:80"
+  #   volumes:
+  #       - ./server:/app
+  #   environment:
+  #       DB_SERVER: Preta-mysql
+  #   depends_on:  
+  #       - mysql
+  #   networks: 
+  #       - prestashop-net
   phpache:
-    image: webdevops/php-apache:7.3
+    image: prestashopt:1.7.8.5
+    build: .
     container_name: Presta-php
     ports:
-        - "81:80"
+    - "81:80"
     volumes:
-        - ./server:/app
+    - ./app:/var/www/html/modules/rede:z
     environment:
         DB_SERVER: Preta-mysql
     depends_on:  
