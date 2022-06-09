@@ -18,9 +18,9 @@ services:
       - ./dbarchivos:/var/lib/mysql
       - ./dbconf:/etc/mysql/conf.d
     expose:
-      - 3306
+      - 3307
     ports:
-      - 3306:3306
+      - 3307:3306
     networks: 
           - prestashop-net
       
