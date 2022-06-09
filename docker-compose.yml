@@ -24,28 +24,27 @@ services:
     networks: 
           - prestashop-net
       
-  server:
-      image: prestashop/prestashop:1.7.8
-      container_name: Presta-php
-      ports:
-          - "81:80"
-      volumes:
-          - "./server:/var/www/html"
-      environment:
-          DB_SERVER: Preta-mysql
-      depends_on:  
-          - mysql
-      networks: 
-          - prestashop-net
+  # server:
+  #     image: prestashop/prestashop:1.7.8.5
+  #     container_name: Presta-php
+  #     ports:
+  #         - "81:80"
+  #     volumes:
+  #         - "./server:/var/www/html"
+  #     environment:
+  #         DB_SERVER: Preta-mysql
+  #     depends_on:  
+  #         - mysql
+  #     networks: 
+  #         - prestashop-net
 
 
-
-
-
-  # phpache:
-  #   image: webdevops/php-apache:7.3
-  #   container_name: Presta-php
-  #   ports:
-  #       - "80:80"
-  #   volumes:
-  #       - ./server:/app
+  phpache:
+    image: webdevops/php-apache:7.3
+    container_name: Presta-php
+    ports:
+        - "80:80"
+    volumes:
+        - ./server:/app
+    networks: 
+        - prestashop-net
