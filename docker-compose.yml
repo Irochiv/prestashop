@@ -46,5 +46,9 @@ services:
         - "81:80"
     volumes:
         - ./server:/app
+    environment:
+        DB_SERVER: Preta-mysql
+    depends_on:  
+        - mysql
     networks: 
         - prestashop-net
