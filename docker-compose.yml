@@ -43,7 +43,7 @@ services:
     image: webdevops/php-apache:7.3
     container_name: Presta-php
     ports:
-        - "80:80"
+        - "81:80"
     volumes:
         - ./server:/app
     networks: 
